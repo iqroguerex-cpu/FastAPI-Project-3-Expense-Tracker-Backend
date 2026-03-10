@@ -1,6 +1,14 @@
 from fastapi import FastAPI, Body
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 EXPENSES = [
     {"id":1,"title":"Groceries","amount":52.40,"category":"food","date":"2026-04-10"},
